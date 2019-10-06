@@ -1,0 +1,26 @@
+{
+  "name": "sofatorrent",
+  "version": "0.0.1",
+  "description": "Coziest way to watch torrents",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javiergarciagonzalez/sofatorrent.git"
+  },
+  "keywords": [
+    "torrents",
+    "webRTC",
+    "express",
+    "node",
+    "javascript"
+  ],
+  "author": "Javier Garcia Gonzalez <javier@garciagon.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javiergarciagonzalez/sofatorrent/issues"
+  },
+  "homepage": "https://github.com/javiergarciagonzalez/sofatorrent#readme"
+}
