@@ -3,7 +3,7 @@
     "plugins": ["prettier"],
     "env": {
         "browser": true,
-        "jest": true
+        "node": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
@@ -16,8 +16,5 @@
     "rules": {
         "prettier/prettier": ["error"],
         "import/prefer-default-export": 0
-    },
-    "settings": {
-        "import/resolver": "webpack"
     }
 }
