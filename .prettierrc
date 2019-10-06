@@ -1,0 +1,19 @@
+{
+    "singleQuote": true,
+    "tabWidth": 4,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      },
+      {
+        "files": [".prettierrc", ".eslintrc", "package.json"],
+        "options": {
+          "parser": "json",
+          "tabWidth": 2
+        }
+      }
+    ]
+  }
