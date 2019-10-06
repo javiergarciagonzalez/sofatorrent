@@ -2,9 +2,11 @@
   "name": "sofatorrent",
   "version": "0.0.1",
   "description": "Coziest way to watch torrents",
-  "main": "server/index.js",
+  "main": "backend/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "backend": "nodemon backend/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,15 @@
     "javascript"
   ],
   "author": "Javier Garcia Gonzalez <javier@garciagon.com>",
-  "license": "MIT",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/javiergarciagonzalez/sofatorrent/issues"
   },
-  "homepage": "https://github.com/javiergarciagonzalez/sofatorrent#readme"
+  "homepage": "https://github.com/javiergarciagonzalez/sofatorrent#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
 }
