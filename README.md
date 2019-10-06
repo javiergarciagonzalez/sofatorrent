@@ -1,2 +1,2 @@
 # sofatorrent
-Coziest  to watch torrents
+Coziest way to watch torrents
