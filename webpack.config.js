@@ -6,7 +6,7 @@ const outputDirectory = 'public/dist';
 
 module.exports = {
     entry: {
-        client: [path.resolve(__dirname, './frontend/index.js')]
+        client: [path.resolve(__dirname, './frontend/index.jsx')]
     },
     output: {
         path: path.join(__dirname, outputDirectory),
