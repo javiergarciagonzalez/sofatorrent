@@ -5,7 +5,16 @@ const fetchRarbgSearchResults = async (req, res) => {
 
     const results = await rarbgApi.search(keyword);
 
-    res.send(results);
+    const parsedRestuls = results.map(result => {
+        const { title, download: link, size } = result;
+        return {
+            title,
+            link,
+            size
+        };
+    });
+
+    res.send(parsedRestuls);
 };
 
 module.exports = { fetchRarbgSearchResults };
