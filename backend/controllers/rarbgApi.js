@@ -8,9 +8,9 @@ const bytesToSize = bytes => {
 };
 
 const fetchRarbgSearchResults = async (req, res) => {
-    const keyword = req.body.search;
+    const { searchTerm } = req.params;
 
-    const results = await rarbgApi.search(keyword);
+    const results = await rarbgApi.search(searchTerm);
 
     const parsedRestuls = results.map(result => {
         const { title, download: link, size } = result;
