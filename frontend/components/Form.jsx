@@ -1,10 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as searchActions from '../redux/actions/search';
 
-export default function Form() {
+function Form({ searchForMovie }) {
     return (
-        <form action="api/search" method="POST">
-            <input type="text" name="search" />
-            <input type="submit" value="Search" />
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+            }}
+        >
+            <input
+                type="text"
+                name="search"
+                onChange={event => {
+                    const { value } = event.target;
+
+                    searchForMovie(value);
+                }}
+            />
         </form>
     );
 }
+
+Form.propTypes = {
+    searchForMovie: PropTypes.func.isRequired
+};
+
+export default connect(
+    null,
+    { ...searchActions }
+)(Form);
