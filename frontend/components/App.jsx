@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './Header';
 import Form from './Form';
+import SearchResults from './SearchResults';
 
 const appStyle = {
     margin: '0 auto',
@@ -14,6 +15,7 @@ export default function App() {
         <div className="main" style={appStyle}>
             <Header />
             <Form />
+            <SearchResults />
         </div>
     );
 }
