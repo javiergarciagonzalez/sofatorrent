@@ -9,7 +9,7 @@
     "start": "node backend/index.js",
     "backend": "nodemon backend/index.js",
     "frontend": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "develop": "concurrently \"npm run backend\" \"npm run frontend\""
+    "develop": "concurrently \"npm run backend\" \"npm run frontend\" --names \"🌐, 💻\" --prefix name"
   },
   "repository": {
     "type": "git",
