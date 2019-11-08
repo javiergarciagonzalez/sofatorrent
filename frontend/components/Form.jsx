@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 
 import * as searchActions from '../redux/actions/search';
 
-const DEBOUNCE_WAIT = 500;
+const DEBOUNCE_WAIT = 200;
 
 function Form({ searchForMovie }) {
     const search = debounce(term => searchForMovie(term), DEBOUNCE_WAIT);

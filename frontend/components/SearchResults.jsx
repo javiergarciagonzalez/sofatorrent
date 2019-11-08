@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function SearchResults({ results }) {
-    if (results.length === 0) {
-        return null;
+import { CircularProgress } from '@material-ui/core';
+
+function SearchResults({ results, isLoading, error }) {
+    if (isLoading) {
+        return <CircularProgress />;
+    }
+
+    if (error !== '') {
+        return <p>{error}</p>;
     }
 
     return (
@@ -29,9 +35,11 @@ SearchResults.propTypes = {
             link: PropTypes.string,
             size: PropTypes.string
         })
-    ).isRequired
+    ).isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired
 };
 
-const mapStateToProps = state => ({ results: state.search.results });
+const mapStateToProps = state => ({ ...state.search });
 
 export default connect(mapStateToProps)(SearchResults);

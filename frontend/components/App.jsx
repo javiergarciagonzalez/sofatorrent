@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { Route } from 'react-router-dom';
 import Header from './Header';
-import Form from './Form';
-import SearchResults from './SearchResults';
+import Home from './Home';
 
 const appStyle = {
     margin: '0 auto',
@@ -14,8 +13,7 @@ export default function App() {
     return (
         <div className="main" style={appStyle}>
             <Header />
-            <Form />
-            <SearchResults />
+            <Route path="/" exact component={Home} />
         </div>
     );
 }
