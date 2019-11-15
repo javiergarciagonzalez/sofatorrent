@@ -5,6 +5,7 @@
   "main": "backend/index.js",
   "scripts": {
     "test": "jest",
+    "build": "webpack",
     "lint:js": "eslint --format codeframe '**/*.js' '**/*.jsx' ",
     "start": "node backend/index.js",
     "backend": "nodemon backend/index.js",
