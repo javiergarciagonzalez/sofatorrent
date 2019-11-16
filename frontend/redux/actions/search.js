@@ -19,8 +19,8 @@ export const clearResultsList = () => dispatch => {
     });
 };
 
-export const searchForMovie = searchTerm => dispatch => {
-    if (searchTerm.length < MINIMUM_SEARCH_TERM_LENGTH) {
+export const searchForMovie = term => dispatch => {
+    if (term.length < MINIMUM_SEARCH_TERM_LENGTH) {
         dispatch(clearResultsList());
         return;
     }
@@ -32,9 +32,9 @@ export const searchForMovie = searchTerm => dispatch => {
                 SEARCH_FOR_MOVIE_SUCCESS,
                 SEARCH_FOR_MOVIE_FAILURE
             ],
-            endpoint: `/api/search/${searchTerm}`,
+            endpoint: `/api/search/${term}`,
             payload: {
-                searchTerm
+                term
             }
         }
     });

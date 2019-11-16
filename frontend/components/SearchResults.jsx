@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { CircularProgress } from '@material-ui/core';
+import MoviesPerProvider from './MoviesPerProvider';
 
 function SearchResults({ results, isLoading, error }) {
     if (isLoading) {
@@ -14,26 +14,28 @@ function SearchResults({ results, isLoading, error }) {
     }
 
     return (
-        <ul>
-            {results.map(result => (
-                <li
-                    key={`movie-${Math.random()
-                        .toString(12)
-                        .substr(4, 9)}`}
-                >
-                    <a href={result.link}>{result.title}</a>
-                </li>
+        <>
+            {results.map(moviesProvider => (
+                <MoviesPerProvider
+                    key={moviesProvider.name}
+                    moviesProvider={moviesProvider}
+                />
             ))}
-        </ul>
+        </>
     );
 }
 
 SearchResults.propTypes = {
     results: PropTypes.arrayOf(
         PropTypes.shape({
-            title: PropTypes.string,
-            link: PropTypes.string,
-            size: PropTypes.string
+            name: PropTypes.string,
+            movies: PropTypes.arrayOf(
+                PropTypes.shape({
+                    title: PropTypes.string,
+                    link: PropTypes.string,
+                    size: PropTypes.string
+                })
+            )
         })
     ).isRequired,
     isLoading: PropTypes.bool.isRequired,

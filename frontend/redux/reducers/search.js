@@ -8,7 +8,7 @@ const initialState = {
     results: [],
     isLoading: false,
     error: '',
-    searchTerm: ''
+    term: ''
 };
 
 export default function(state = initialState, action) {
@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
 
             let error = '';
             if (results.length === 0) {
-                error = `Unable to find results for '${action.payload.searchTerm}''`;
+                error = `Unable to find results for '${action.payload.term}''`;
             }
 
             return {
