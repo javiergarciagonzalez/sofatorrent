@@ -6,6 +6,8 @@ const sass = require('sass');
 
 const outputDirectory = 'public/dist';
 
+const isProduction = process.env.ENV === 'production';
+
 module.exports = {
     entry: {
         client: [path.resolve(__dirname, './frontend/index.jsx')]
@@ -14,6 +16,7 @@ module.exports = {
         path: path.join(__dirname, outputDirectory),
         filename: '[name].bundle.js'
     },
+    devtool: isProduction ? 'source-map' : 'eval-source-map',
     module: {
         rules: [
             {
