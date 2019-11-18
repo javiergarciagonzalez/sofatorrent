@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/{javiergarciagonzalez}/{sofatorrent}/workflows/Sofatorrent/badge.svg)](https://github.com/{javiergarciagonzalez}/{sofatorrent}/actions)
+[![Actions Status](https://github.com/javiergarciagonzalez/sofatorrent/workflows/Sofatorrent/badge.svg)](https://github.com/javiergarciagonzalez/sofatorrent/actions)
 
 
 # sofatorrent
