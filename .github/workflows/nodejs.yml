@@ -1,4 +1,4 @@
-name: Sofatorrent CI
+name: Sofatorrent
 
 on: [push]
 
