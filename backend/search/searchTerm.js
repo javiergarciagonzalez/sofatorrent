@@ -27,7 +27,7 @@ const searchTerm = async term => {
         return results;
     } catch (e) {
         // eslint-disable-next-line
-        console.warn('Error: ', e.message);
+        console.warn(`Error: No results found for ${term}.`);
         return [];
     }
 };
