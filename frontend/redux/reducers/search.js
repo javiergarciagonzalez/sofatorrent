@@ -1,7 +1,8 @@
 import {
     SEARCH_FOR_MOVIE,
     SEARCH_FOR_MOVIE_SUCCESS,
-    SEARCH_FOR_MOVIE_FAILURE
+    SEARCH_FOR_MOVIE_FAILURE,
+    CLEAR_RESULTS_LIST
 } from '../actionTypes';
 
 const initialState = {
@@ -37,6 +38,8 @@ export default function(state = initialState, action) {
                 isLoading: false,
                 error: action.error
             };
+        case CLEAR_RESULTS_LIST:
+            return initialState;
         default:
             return state;
     }
