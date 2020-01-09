@@ -14,7 +14,7 @@ export default function MoviesPerProvider({ moviesProvider }) {
                             .substr(4, 9)}`}
                     >
                         <p>Link:</p>
-                        <Link to={{ pathname: '/video', link: movie.link }}>
+                        <Link to={{ pathname: '/player', link: movie.link }}>
                             {movie.title}
                         </Link>
                         <p>Size: {movie.size}</p>

@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Video(props) {
+import WebTorrentVideo from './WebTorrentVideo';
+
+export default function Player(props) {
     const { location } = props;
     const { link } = location;
     return (
         <div>
-            Component TODO
             {link}
+            <WebTorrentVideo magnetLink={link} />
         </div>
     );
 }
 
-Video.propTypes = {
+Player.propTypes = {
     location: PropTypes.shape({
         link: PropTypes.string
     }).isRequired
