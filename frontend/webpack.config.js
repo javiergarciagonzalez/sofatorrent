@@ -1,5 +1,4 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const sass = require('sass');
@@ -10,7 +9,7 @@ const isProduction = process.env.ENV === 'production';
 
 module.exports = {
     entry: {
-        client: [path.resolve(__dirname, './frontend/index.jsx')]
+        client: [path.resolve(__dirname, 'index.jsx')]
     },
     output: {
         path: path.join(__dirname, outputDirectory),
@@ -75,13 +74,12 @@ module.exports = {
         fs: 'empty'
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
         new HtmlWebpackPlugin({
-            template: './public/index.html',
-            favicon: './public/favicon.ico'
+            template: '../public/index.html',
+            favicon: '../public/favicon.ico'
         })
     ]
 };
