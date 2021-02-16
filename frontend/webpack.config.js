@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const sass = require('sass');
@@ -9,8 +10,10 @@ const isProduction = process.env.ENV === 'production';
 
 module.exports = {
     entry: {
-        client: [path.resolve(__dirname, 'index.jsx')]
+        client: [path.resolve(__dirname, 'src/index.jsx')]
     },
+    mode: isProduction ? 'production' : 'development',
+    target: 'web',
     output: {
         path: path.join(__dirname, outputDirectory),
         filename: '[name].bundle.js'
@@ -20,15 +23,14 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                include: [/src/],
+                exclude: [/node_modules/],
+                loader: 'babel-loader'
             },
             {
-                test: /\.scss$/,
+                test: /\.(sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    { loader: MiniCssExtractPlugin.loader },
                     {
                         loader: 'css-loader',
                         options: {
@@ -46,32 +48,38 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             implementation: sass,
-                            sourceMap: true
+                            sassOptions: {
+                                sourceMap: true
+                            }
                         }
                     }
                 ]
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
                 test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                loader: 'url-loader?limit=100000'
+                use: [
+                    {
+                        loader: 'url-loader?limit=100000'
+                    }
+                ]
             }
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        fallback: {
+            https: false,
+            http: false
+        },
+        alias: {
+            path: 'path-browserify'
+        }
     },
     devServer: {
         port: 3000,
         proxy: {
             '/api': 'http://localhost:8080'
         }
-    },
-    node: {
-        fs: 'empty'
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -80,6 +88,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: '../public/index.html',
             favicon: '../public/favicon.ico'
+        }),
+        new webpack.ProvidePlugin({
+            Buffer: ['buffer', 'Buffer'],
+            process: 'process/browser'
         })
     ]
 };

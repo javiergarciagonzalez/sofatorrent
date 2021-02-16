@@ -17,5 +17,11 @@
     "rules": {
         "prettier/prettier": ["error"],
         "import/prefer-default-export": 0
+    },
+    "settings": {
+        "import/resolver": "webpack",
+        "react": {
+            "version": "detect"
+        }
     }
 }
